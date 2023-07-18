@@ -2,7 +2,7 @@
 <rss version="2.0">
    <channel>
       <title>URL RSS Feed</title>
-      <link>http://www.example.com</link>
+      <link>https://rss-feed-pied.vercel.app/</link>
       <description>RSS Feed for the URLs</description>
       <item>
          <title>How to Create and Use a Calendar in Obsidian - Tips, Tricks, and Examples - Boost Productivity with Digital Note-Taking</title>
