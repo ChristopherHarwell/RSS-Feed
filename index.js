@@ -2,18 +2,24 @@ const express = require('express');
 const fs = require('fs');
 
 const app = express();
-const port = process.env.PORT || 8080;
+const port = process.env.PORT || 3000;
 
 // Endpoint for serving the RSS feed
 app.get('/', (req, res) => {
   // Read the XML file
-  const xml = fs.readFileSync('rss_feed.xml', 'utf-8');
+  fs.readFile('./rss_feed.xml', 'utf-8', (err, xml) => {
+    if (err) {
+      console.error('Error reading RSS file:', err);
+      res.status(500).send('Internal Server Error');
+      return;
+    }
 
-  // Set the appropriate headers
-  res.setHeader('Content-Type', 'application/xml');
+    // Set the appropriate headers
+    res.setHeader('Content-Type', 'application/xml');
   
-  // Send the XML response
-  res.send(xml);
+    // Send the XML response
+    res.send(xml);
+  });
 });
 
 // Start the server
