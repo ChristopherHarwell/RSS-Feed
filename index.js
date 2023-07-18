@@ -2,10 +2,10 @@ const express = require('express');
 const fs = require('fs');
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
 
 // Endpoint for serving the RSS feed
-app.get('/rss', (req, res) => {
+app.get('/', (req, res) => {
   // Read the XML file
   const xml = fs.readFileSync('rss_feed.xml', 'utf-8');
 
